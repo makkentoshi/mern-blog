@@ -11,6 +11,7 @@ import {
   deleteUserFailure,
   deleteUserStart,
   deleteUserSuccess,
+  signoutSuccess,
 } from "../redux/user/userSlice";
 import {
   getDownloadURL,
@@ -122,6 +123,21 @@ export default function DashProfile() {
       setUpdateUserError(error.message);
     }
   };
+  const handleSignOut = async () => {
+    try {
+      const res = await fetch("/api/user/signout", {
+        method: "POST",
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        console.log(data.message);
+      } else {
+        dispatch(signoutSuccess());
+      }
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
 
   const handleDeleteUser = async () => {
     setShowModal(false);
@@ -216,7 +232,9 @@ export default function DashProfile() {
         >
           Delete Account?
         </span>
-        <span className="cursor-pointer font-semibold">Sign Out</span>
+        <span onClick={handleSignOut} className="cursor-pointer font-semibold">
+          Sign Out
+        </span>
       </div>
       {updateUserSuccess && (
         <Alert color="success" className="mt-5">
