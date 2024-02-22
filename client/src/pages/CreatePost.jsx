@@ -18,10 +18,10 @@ export default function CreatePost() {
   const [imageUploadProgress, setImageFileUploadProgress] = useState(null);
   const [imageFileUploadError, setImageFileUploadError] = useState(null);
   const [publishError, setPublishError] = useState(null);
+  const [formData, setFormData] = useState({});
 
   const navigate = useNavigate();
 
-  const [formData, setFormData] = useState({});
   const handleUploadImage = async () => {
     try {
       if (!file) {
@@ -30,7 +30,7 @@ export default function CreatePost() {
       }
       setImageFileUploadError(null);
       const storage = getStorage(app);
-      const fileName = new Date().getTime() + "-" + file.name;
+      const fileName = new Date().getTime() + '-' + file.name;
       const storageRef = ref(storage, fileName);
       const uploadTask = uploadBytesResumable(storageRef, file);
       uploadTask.on(
@@ -136,7 +136,7 @@ export default function CreatePost() {
               <div className="w-16 h-16">
                 <CircularProgressbar
                   value={imageUploadProgress}
-                  text={`${imageUploadProgress}%`}
+                  text={`${imageUploadProgress || 0}%`}
                 ></CircularProgressbar>
               </div>
             ) : (

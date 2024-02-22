@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
 const postSchema = new mongoose.Schema(
   {
@@ -18,12 +18,11 @@ const postSchema = new mongoose.Schema(
     image: {
       type: String,
       default:
-        "https://cdn.create.vista.com/api/media/small/243398462/stock-photo-isometric-concept-creative-writing-blogging-education-content-management-web-page",
+        'https://www.hostinger.com/tutorials/wp-content/uploads/sites/2/2021/09/how-to-write-a-blog-post.png',
     },
     category: {
       type: String,
-      required: true,
-      default: "uncategorized",
+      default: 'uncategorized',
     },
     slug: {
       type: String,
@@ -31,9 +30,9 @@ const postSchema = new mongoose.Schema(
       unique: true,
     },
   },
-  { tiimestamps: true }
+  { timestamps: true }
 );
 
-const Post = mongoose.model("Post", postSchema);
+const Post = mongoose.model('Post', postSchema);
 
 export default Post;

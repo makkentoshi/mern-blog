@@ -21,7 +21,6 @@ import {
 } from "firebase/storage";
 import { app } from "../firebase";
 import { useDispatch } from "react-redux";
-import { updateUser } from "../../../api/controllers/user.controller";
 import { Link } from "react-router-dom";
 
 export default function DashProfile() {
@@ -211,7 +210,7 @@ export default function DashProfile() {
           id="username"
           placeholder="Username"
           defaultValue={currentUser.username}
-          onChange={handleChange}
+          onChange={handleChange }
         ></TextInput>
         <TextInput
           type="text"
@@ -280,7 +279,7 @@ export default function DashProfile() {
             </h3>
             <div className="flex justify-center gap-6">
               <Button
-                className="bg-gradient-to-r from-pink-400 to-yellow-400 hover:from-red-500 hover:to-red-800"
+                className="bg-gradient-to-r from-pink-400 to-red-400 hover:from-red-500 hover:to-red-800"
                 onClick={handleDeleteUser}
               >
                 Yes, I'm Sure
