@@ -2,11 +2,13 @@ import { Alert, Button, Textarea } from "flowbite-react";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import Comment from "../components/Comment";
 
 export default function CommentSection({ postId }) {
   const { currentUser } = useSelector((state) => state.user);
   const [comment, setComment] = useState("");
   const [commentError, setCommentError] = useState(null);
+  const [comments, setComments] = useState([]);
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -29,11 +31,29 @@ export default function CommentSection({ postId }) {
       if (res.ok) {
         setComment("");
         setCommentError(null);
+        setComments([data, ...comments]);
       }
     } catch (error) {
       setCommentError(error.message);
     }
   };
+
+  useEffect(() => {
+    const getComments = async () => {
+      try {
+        const res = await fetch(`/api/comment/getPostComments/${postId}`);
+
+        if (res.ok) {
+          const data = await res.json();
+          setComments(data);
+        }
+      } catch (error) {
+        console.log(error.message);
+      }
+    };
+    getComments();
+  }, [postId]);
+
   return (
     <div className="max-w-2xl mx-auto w-full p-3">
       {currentUser ? (
@@ -88,6 +108,26 @@ export default function CommentSection({ postId }) {
             </Alert>
           )}
         </form>
+      )}
+
+      {comments.length === 0 ? (
+        <p className="text-sm my-5">No comments yet!</p>
+      ) : (
+        <>
+            <div className="text-sm my-5 flex items-center gap-1">
+                <p className="font-medium">Comments</p>
+                <div className=" ml-2 border border-gray-200 py-1 px-3 rounded-full">
+                    <p className="font-medium">{comments.length}</p>
+                </div>
+            </div>
+            {
+                comments.map(comment => (
+                    <Comment key={comment._id} comment={comment}>
+             
+                    </Comment>
+                ))
+            }
+        </>
       )}
     </div>
   );
