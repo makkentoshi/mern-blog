@@ -1,7 +1,7 @@
 import { Alert, Button, Textarea } from "flowbite-react";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Comment from "../components/Comment";
 
 export default function CommentSection({ postId }) {
@@ -9,6 +9,9 @@ export default function CommentSection({ postId }) {
   const [comment, setComment] = useState("");
   const [commentError, setCommentError] = useState(null);
   const [comments, setComments] = useState([]);
+
+  const navigate = useNavigate();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -53,6 +56,36 @@ export default function CommentSection({ postId }) {
     };
     getComments();
   }, [postId]);
+
+  const handleLike = async (commentId) => {
+    try {
+      if (!currentUser) {
+        navigate("/sign-in");
+        return;
+      }
+      const res = await fetch(`/api/comment/likeComment/${commentId}`, 
+      {
+        method: "PUT",
+      });
+      
+      if (res.ok) {
+        const data = await res.json();
+        setComments(
+          comments.map((comment) =>
+            comment._id === commentId
+              ? {
+                  ...comment,
+                  likes: data.likes,
+                  numberOfLikes: data.likes.length,
+                }
+              : comment
+          )
+        );
+      }
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
 
   return (
     <div className="max-w-2xl mx-auto w-full p-3">
@@ -114,19 +147,19 @@ export default function CommentSection({ postId }) {
         <p className="text-sm my-5">No comments yet!</p>
       ) : (
         <>
-            <div className="text-sm my-5 flex items-center gap-1">
-                <p className="font-medium">Comments</p>
-                <div className=" ml-2 border border-gray-200 py-1 px-3 rounded-full">
-                    <p className="font-medium">{comments.length}</p>
-                </div>
+          <div className="text-sm my-5 flex items-center gap-1">
+            <p className="font-medium">Comments</p>
+            <div className=" ml-1 border border-gray-200 py-1 px-3 rounded-full">
+              <p className="font-medium">{comments.length}</p>
             </div>
-            {
-                comments.map(comment => (
-                    <Comment key={comment._id} comment={comment}>
-             
-                    </Comment>
-                ))
-            }
+          </div>
+          {comments.map((comment) => (
+            <Comment
+              key={comment._id}
+              comment={comment}
+              onLike={handleLike}
+            ></Comment>
+          ))}
         </>
       )}
     </div>
