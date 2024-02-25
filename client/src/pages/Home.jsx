@@ -22,8 +22,11 @@ export default function Home() {
   return (
     <div>
       <div className="flex flex-col gap-6 p-28 px-3 max-w-6xl mx-auto">
+        <div className="pb-5">
+          <img src="https://em-content.zobj.net/source/apple/354/see-no-evil-monkey_1f648.png"></img>
+        </div>
         <h1 className="text-4xl font-bold lg:text-6xl">Welcome to my Blog</h1>
-        <p className="text-gray-500 text-xs sm:text-sm">
+        <p className="text-gray-600 text-md sm:text-md dark:text-gray-200">
           Dive into a World of Diverse Discoveries: Your One-Stop Blog for
           Curious Minds Welcome to your personal portal to a universe of
           exploration! This blog isn't just a collection of articles; it's an
@@ -41,7 +44,7 @@ export default function Home() {
           View all posts
         </Link>
       </div>
-      <div className="p-3 bg-amber-100 dark:bg-slate-700">
+      <div className="p-3 bg-gray-100 dark:bg-slate-700">
         <CallToAction></CallToAction>
       </div>
 
