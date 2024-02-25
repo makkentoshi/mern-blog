@@ -100,7 +100,9 @@ export default function Comment({ comment, onLike, onEdit, onDelete }) {
           </>
         ) : (
           <>
-            <p className="text-gray-600 pb-1.5 pt-1.5">{comment.content}</p>
+            <p className="text-gray-600 pb-1.5 pt-1.5 dark:text-gray-300">
+              {comment.content}
+            </p>
             <div className="flex items-center pt-2 text-xs  gap-2">
               <button
                 type="button"
