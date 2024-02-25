@@ -52,8 +52,12 @@ export default function FooterCom() {
                 >
                   Github
                 </Footer.Link>
-                <Footer.Link href="#" target="_blank" rel="noopener noreferrer">
-                  Discord
+                <Footer.Link
+                  href="https://www.instagram.com/makkentosh1/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Instagram
                 </Footer.Link>
               </Footer.LinkGroup>
             </div>
@@ -89,11 +93,23 @@ export default function FooterCom() {
               href="https://github.com/makkentoshi"
               icon={BsGithub}
             ></Footer.Icon>
-            <Footer.Icon href="#" icon={BsYoutube}></Footer.Icon>
+            <Footer.Icon
+              href="https://www.youtube.com/channel/UC6nMEjnFC_t0ojv_zmRVeDg"
+              icon={BsYoutube}
+            ></Footer.Icon>
             <Footer.Icon href="#" icon={BsDiscord}></Footer.Icon>
-            <Footer.Icon href="#" icon={BsTwitterX}></Footer.Icon>
-            <Footer.Icon href="#" icon={BsInstagram}></Footer.Icon>
-            <Footer.Icon href="#" icon={BsLinkedin}></Footer.Icon>
+            <Footer.Icon
+              href="https://twitter.com/makkentosh1"
+              icon={BsTwitterX}
+            ></Footer.Icon>
+            <Footer.Icon
+              href="https://www.instagram.com/makkentosh1/"
+              icon={BsInstagram}
+            ></Footer.Icon>
+            <Footer.Icon
+              href="https://www.linkedin.com/in/mark-tsarenko-146874292/"
+              icon={BsLinkedin}
+            ></Footer.Icon>
             <Footer.Icon href="#" icon={BsFacebook}></Footer.Icon>
           </div>
         </div>

@@ -5,6 +5,9 @@ import PostCard from "../components/PostCard";
 
 export default function Home() {
   const [posts, setPosts] = useState([]);
+  const [imageSrc, setImageSrc] = useState(
+    "https://em-content.zobj.net/source/apple/354/see-no-evil-monkey_1f648.png"
+  );
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -19,11 +22,30 @@ export default function Home() {
     fetchPosts();
   }, []);
 
+  const handleClickButton = () => {
+    if (
+      imageSrc ===
+      "https://em-content.zobj.net/source/apple/354/see-no-evil-monkey_1f648.png".toLowerCase()
+    ) {
+      setImageSrc(
+        "https://em-content.zobj.net/source/apple/354/hear-no-evil-monkey_1f649.png".toLowerCase()
+      );
+    } else {
+      setImageSrc(
+        "https://em-content.zobj.net/source/apple/354/see-no-evil-monkey_1f648.png".toLowerCase()
+      );
+    }
+  };
+
   return (
     <div>
       <div className="flex flex-col gap-6 p-28 px-3 max-w-6xl mx-auto">
         <div className="pb-5">
-          <img src="https://em-content.zobj.net/source/apple/354/see-no-evil-monkey_1f648.png"></img>
+          <img
+            src={imageSrc}
+            alt="monkey image"
+            onClick={handleClickButton}
+          ></img>
         </div>
         <h1 className="text-4xl font-bold lg:text-6xl">Welcome to my Blog</h1>
         <p className="text-gray-600 text-md sm:text-md dark:text-gray-200">

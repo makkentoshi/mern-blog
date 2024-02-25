@@ -135,8 +135,15 @@ export default function Search() {
             >
               <option value="uncategorized">Uncategorized</option>
               <option value="general">General</option>
-              <option value="music">Music</option>
+              <option value="compscience">Computer Science/Engineering</option>
+              <option value="economics">Economics/Business</option>
+              <option value="educational">Educational</option>
+              <option value="techinnovations">Technology & Innovations</option>
+              <option value="games">Games</option>
               <option value="movies">Movies</option>
+              <option value="music">Music</option>
+              <option value="sports">Sports</option>
+              <option value="hobbies">Hobbies</option>
             </Select>
           </div>
 

@@ -16,6 +16,7 @@ export default function Header() {
   const { currentUser } = useSelector((state) => state.user);
   const { theme } = useSelector((state) => state.theme);
   const [searchTerm, setSearchTerm] = useState("");
+  const [isFocused, setIsFocused] = useState(false);
 
   useEffect(() => {
     const urlParams = new URLSearchParams(location.search);
@@ -66,17 +67,14 @@ export default function Header() {
           type="text"
           placeholder="Search..."
           rightIcon={AiOutlineSearch}
-          className="hidden lg:inline"
+          className=""
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
         ></TextInput>
       </form>
-      <Button className="w-12 h-10 lg:hidden" color="gray" pill>
-        <AiOutlineSearch></AiOutlineSearch>
-      </Button>
       <div className="flex gap-2 md:order-2">
         <Button
-          className="w-12 h-10 hidden sm:inline"
+          className="w-10 h-10 mr-1"
           color="gray"
           pill
           onClick={() => dispatch(toggleTheme())}
