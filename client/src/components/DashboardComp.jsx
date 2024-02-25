@@ -196,7 +196,7 @@ export default function DashboardComp() {
           <div className="flex justify-between p-3 text-sm font-semibold">
             <h1 className="text-center p-2">Recent Posts</h1>
             <Button outline gradientDuoTone="purpleToPink">
-              <Link to="/dashboard?tab=users">View All</Link>
+              <Link to="/dashboard?tab=posts">View All</Link>
             </Button>
           </div>
           <Table hoverable>
@@ -210,11 +210,13 @@ export default function DashboardComp() {
                 <Table.Body key={post._id} className="divide-y">
                   <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                     <Table.Cell>
-                      <img
-                        src={post.image}
-                        className="w-14 h-10 rounded-md bg-gray-500"
-                        alt="User image"
-                      />
+                      <Link to={`/post/${post.slug}`}>
+                        <img
+                          src={post.image}
+                          className="w-14 h-10 rounded-md bg-gray-500"
+                          alt="User image"
+                        />
+                      </Link>
                     </Table.Cell>
                     <Table.Cell className="w-96">{post.title}</Table.Cell>
                     <Table.Cell className="w-5">{post.category}</Table.Cell>
