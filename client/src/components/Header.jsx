@@ -56,10 +56,10 @@ export default function Header() {
         to="/"
         className="self-center whitespace-nowrap text-sm sm:text-xl font-semibold dark:text-white"
       >
-        <span className="px-2 py-1 bg-gradient-to-r from from-indigo-500 via-purple-500 to-pink-500 rounded-lg text-white">
+        <span className="px-2 py-1 bg-gradient-to-r from from-indigo-500 via-purple-500 to-pink-500 rounded-lg text-white  hidden lg:inline">
           Mark&apos;s
         </span>
-        Blog
+        <span className="hidden lg:inline">Blog</span>
       </Link>
 
       <form onSubmit={handleSubmit}>
@@ -72,9 +72,9 @@ export default function Header() {
           onChange={(e) => setSearchTerm(e.target.value)}
         ></TextInput>
       </form>
-      <div className="flex gap-2 md:order-2">
+      <div className="flex gap-2 md:order-2 ">
         <Button
-          className="w-10 h-10 mr-1"
+          className="w-10 h-10 mr-1 "
           color="gray"
           pill
           onClick={() => dispatch(toggleTheme())}
