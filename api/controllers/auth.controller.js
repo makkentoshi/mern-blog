@@ -17,6 +17,12 @@ export const signup = async (req, res, next) => {
     next(errorHandler(400, "All fields are requiered"));
   }
 
+  if (!req.body.username.match(/^([a-zA-Z0-9]+)$/)) {
+    return next(
+      errorHandler(400, "Username must contain only letters and numbers")
+    );
+  }
+
   const hashedPassword = await bcryptjs.hashSync(password, 10);
 
   const newUser = new User({
@@ -82,7 +88,10 @@ export const google = async (req, res, next) => {
   try {
     const user = await User.findOne({ email });
     if (user) {
-      const token = jwt.sign({ id: user._id , isAdmin: user.isAdmin}, process.env.JWT_SECRET_KEY);
+      const token = jwt.sign(
+        { id: user._id, isAdmin: user.isAdmin },
+        process.env.JWT_SECRET_KEY
+      );
       const { password, ...rest } = user._doc;
       res
         .status(200)
@@ -104,7 +113,10 @@ export const google = async (req, res, next) => {
         profilePicture: googlePhotoUrl,
       });
       await newUser.save();
-      const token = jwt.sign({ id: newUser._id , isAdmin: newUser.isAdmin}, process.env.JWT_SECRET_KEY);
+      const token = jwt.sign(
+        { id: newUser._id, isAdmin: newUser.isAdmin },
+        process.env.JWT_SECRET_KEY
+      );
       const { password, ...rest } = newUser._doc;
       res
         .status(200)

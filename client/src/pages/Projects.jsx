@@ -8,10 +8,11 @@ export default function Projects() {
         <img src="https://em-content.zobj.net/source/apple/354/heart-hands_1faf6.png"></img>
       </div>
       <p className="text-xl text-gray-500 dark:text-gray-200">
-        Build fun and engaging projects while learning HTML , CSS and
-        Javascript!
+        Build fun and engaging projects while learning HTML , CSS and Javascript
+        with me!
       </p>
-      <CallToAction></CallToAction>
+      <p>My email : codewithmark.kz@gmail.com</p>
+      <div></div>
     </div>
   );
 }

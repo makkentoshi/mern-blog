@@ -66,7 +66,7 @@ export default function Home() {
           View all posts
         </Link>
       </div>
-      <div className="p-3 bg-gray-100 dark:bg-slate-700">
+      <div className="p-3 bg-gray-0 dark:bg-slate-800 border border-pink-300">
         <CallToAction></CallToAction>
       </div>
 

@@ -3,15 +3,19 @@ import { BsInstagram } from "react-icons/bs";
 
 export default function CallToAction() {
   return (
-    <div className="flex flex-col sm:flex-row p-3 border border-teal-300 justify-center items-center rounded-tl-3xl rounded-br-3xl text-center">
-      <div className="flex-1 justify-center flex flex-col">
-        <h2 className="text-2xl">
+    <div className="flex flex-col sm:flex-row p-10 border border-pink-300 justify-center items-center rounded-tl-3xl rounded-br-3xl text-center ">
+      <div className="flex-0 flex flex-col">
+        <h2 className="text-3xl">
           Want to learn more about Computer Science and Technology?
         </h2>
         <p className="text-gray-500 my-2">
           Gain new knowledge and develop your skills with us!
         </p>
-        <Button className="rounded-tl-xl rounded-bl-none bg-gradient-to-r from-pink-400 ">
+        <Button
+          className="rounded-tl-xl rounded-bl-none bg-gradient-to-r "
+          gradientDuoTone="purpleToBlue"
+          size="md"
+        >
           <BsInstagram className="mr-2"></BsInstagram>
           <a
             href="https://www.instagram.com/makkentosh1/"
@@ -23,7 +27,7 @@ export default function CallToAction() {
         </Button>
       </div>
       <div className="p-7 flex-1">
-        <img src="https://img.freepik.com/premium-vector/crossplatform-software-abstract-concept-vector-illustration_107173-25597.jpg"></img>
+        <img src="https://1office.vn/wp-content/uploads/2023/10/video-marketing-tiep-thi-video.webp"></img>
       </div>
     </div>
   );
