@@ -51,7 +51,7 @@ export default function Header() {
   };
 
   return (
-    <Navbar className="border-b-2">
+    <Navbar className="border-b-2 m-1">
       <Link
         to="/"
         className="self-center whitespace-nowrap text-sm sm:text-xl font-semibold dark:text-white"
@@ -91,6 +91,7 @@ export default function Header() {
                 alt="user"
                 img={currentUser.profilePicture}
                 rounded
+                className="hidden lg:inline"
               ></Avatar>
             }
           >
@@ -101,7 +102,7 @@ export default function Header() {
               </span>
             </Dropdown.Header>
             <Link to={"/dashboard?tab=profile"}>
-              <Dropdown.Item className="font-medium">
+              <Dropdown.Item className="font-medium ">
                 <FaUser className="mr-5" /> Profile
               </Dropdown.Item>
             </Link>
@@ -129,6 +130,9 @@ export default function Header() {
         </Navbar.Link>
         <Navbar.Link active={path === "/projects"} as={"div"}>
           <Link to="/projects">Projects</Link>
+        </Navbar.Link>
+        <Navbar.Link active={path === "/dashboard?tab=profile"} as={"div"}>
+          <Link to="/dashboard?tab=profile">Profile</Link>
         </Navbar.Link>
       </Navbar.Collapse>
     </Navbar>
