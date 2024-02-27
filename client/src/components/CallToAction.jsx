@@ -3,7 +3,7 @@ import { BsInstagram } from "react-icons/bs";
 
 export default function CallToAction() {
   return (
-    <div className="flex flex-col sm:flex-row p-10 border border-pink-300 justify-center items-center rounded-tl-3xl rounded-br-3xl text-center ">
+    <div className="flex flex-col sm:flex-row p-10 border border-pink-300 justify-center items-center rounded-tl-3xl rounded-br-3xl text-center    ">
       <div className="flex-0 flex flex-col">
         <h2 className="text-3xl">
           Want to learn more about Computer Science and Technology?
@@ -12,7 +12,7 @@ export default function CallToAction() {
           Gain new knowledge and develop your skills with us!
         </p>
         <Button
-          className="rounded-tl-xl rounded-bl-none bg-gradient-to-r "
+          className="rounded-tl-xl rounded-bl-none bg-gradient-to-r   "
           gradientDuoTone="purpleToBlue"
           size="md"
         >

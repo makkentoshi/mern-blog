@@ -38,11 +38,12 @@ export default function Home() {
   };
 
   return (
-    <div>
+    <div className="">
       <div className="flex flex-col gap-6 p-28 px-3 max-w-6xl mx-auto">
         <div className="pb-5">
           <img
             src={imageSrc}
+            className="transition-all duration-300"
             alt="monkey image"
             onClick={handleClickButton}
           ></img>

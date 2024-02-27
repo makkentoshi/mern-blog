@@ -11,8 +11,12 @@ export default function Projects() {
         Build fun and engaging projects while learning HTML , CSS and Javascript
         with me!
       </p>
-      <p>My email : codewithmark.kz@gmail.com</p>
-      <div></div>
+      <div className="flex justify-center items-center text-lg">
+        <p className=" ">My email :</p>
+        <p className="ml-2 hover:underline cursor-pointer text-blue-500">
+          codewithmark.kz@gmail.com
+        </p>
+      </div>
     </div>
   );
 }

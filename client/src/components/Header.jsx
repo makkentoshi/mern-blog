@@ -51,7 +51,7 @@ export default function Header() {
   };
 
   return (
-    <Navbar className="border-b-2 m-1">
+    <Navbar className="border-b-2">
       <Link
         to="/"
         className="self-center whitespace-nowrap text-sm sm:text-xl font-semibold dark:text-white"
@@ -131,7 +131,11 @@ export default function Header() {
         <Navbar.Link active={path === "/projects"} as={"div"}>
           <Link to="/projects">Projects</Link>
         </Navbar.Link>
-        <Navbar.Link active={path === "/dashboard?tab=profile"} as={"div"}>
+        <Navbar.Link
+          active={path === "/dashboard?tab=profile"}
+          as={"div"}
+          className="lg:hidden"
+        >
           <Link to="/dashboard?tab=profile">Profile</Link>
         </Navbar.Link>
       </Navbar.Collapse>
