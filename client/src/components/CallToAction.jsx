@@ -3,7 +3,7 @@ import { BsInstagram } from "react-icons/bs";
 
 export default function CallToAction() {
   return (
-    <div className="flex flex-col sm:flex-row p-10 border border-pink-300 justify-center items-center rounded-tl-3xl rounded-br-3xl text-center    ">
+    <div className="flex flex-col sm:flex-row p-10 border border-purple-500 justify-center items-center rounded-tl-3xl rounded-br-3xl text-center    ">
       <div className="flex-0 flex flex-col">
         <h2 className="text-3xl">
           Want to learn more about Computer Science and Technology?

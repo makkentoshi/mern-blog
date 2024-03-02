@@ -14,7 +14,7 @@ export default function Projects() {
       <div className="flex justify-center items-center text-lg">
         <p className=" ">My email :</p>
         <p className="ml-2 hover:underline cursor-pointer text-blue-500">
-          codewithmark.kz@gmail.com
+          markiscoding.co@gmail.com
         </p>
       </div>
     </div>
